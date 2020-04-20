@@ -1,0 +1,471 @@
+<!DOCTYPE html><html><head>
+      <title>project_handbook</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/henry_pan/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.2/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="project-handbook">Project Handbook</h2>
+
+<h3 class="mume-header" id="project-items">Project Items</h3>
+
+<hr>
+<p><strong>Advanced Lane Finding Project</strong></p>
+<p>The goals / steps of this project are the following:</p>
+<ul>
+<li>Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.</li>
+<li>Apply a distortion correction to raw images.</li>
+<li>Use color transforms, gradients, etc., to create a thresholded binary image.</li>
+<li>Apply a perspective transform to rectify binary image (&quot;birds-eye view&quot;).</li>
+<li>Detect lane pixels and fit to find the lane boundary.</li>
+<li>Determine the curvature of the lane and vehicle position with respect to center.</li>
+<li>Warp the detected lane boundaries back onto the original image.</li>
+<li>Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.</li>
+</ul>
+<h3 class="mume-header" id="rubrichttpsreviewudacitycomrubrics571view-points"><a href="https://review.udacity.com/#!/rubrics/571/view">Rubric</a> Points</h3>
+
+<h4 class="mume-header" id="here-i-will-consider-the-rubric-points-individually-and-describe-how-i-addressed-each-point-in-my-implementation">Here I will consider the rubric points individually and describe how I addressed each point in my implementation.</h4>
+
+<hr>
+<h4 class="mume-header" id="writeup-readme">Writeup / README</h4>
+
+<h4 class="mume-header" id="1-provide-a-writeup-readme-that-includes-all-the-rubric-points-and-how-you-addressed-each-one-you-can-submit-your-writeup-as-markdown-or-pdf-herehttpsgithubcomudacitycarnd-advanced-lane-linesblobmasterwriteup_templatemd-is-a-template-writeup-for-this-project-you-can-use-as-a-guide-and-a-starting-point">1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  <a href="https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md">Here</a> is a template writeup for this project you can use as a guide and a starting point.</h4>
+
+<p>You&apos;re reading it!</p>
+<hr>
+<h3 class="mume-header" id="camera-calibration">Camera Calibration</h3>
+
+<h4 class="mume-header" id="1-briefly-state-how-you-computed-the-camera-matrix-and-distortion-coefficients-provide-an-example-of-a-distortion-corrected-calibration-image">1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.</h4>
+
+<p>The code for this step is contained in the file of &quot;<code>Camera_Calibration</code>&quot;, which locates <strong><code>Camera_Calibration/camera_calibration.py</code></strong>. I run this code with py2, and you will see the result files of <strong><code>Camera_Calibration/cam_param_py2.pickle</code></strong> and <strong><code>output_images/undistort_image_before_to_after.jpg</code></strong>.</p>
+<p>This code has two main functions, which are <code>calibrate_camera()</code> and <code>undistort_image()</code></p>
+<ul>
+<li>In the function of calibrate_camera(), I introduced the overload modifier for overlap calibration, that is <code>@determine_calibration</code>, and more details description at the line of 12-15 in the file of camera_calibration.py.</li>
+<li>In the calibrate_camera(), i start by preparing &quot;world points&quot;, named <code>wdp</code>, which will be the (x, y, z) coordinates of the chessboard corners in the world. Because worldpoints are homography matrix, the value of z is 0. The same way, <code>corners</code> is 2d points in pixel plane.</li>
+<li>Then i got <code>worldpoints</code> and <code>pixelpoints</code> by the function of <code>cv2.findChessboardCorners()</code> and to compute the camera calibration and distortion coefficients using the <code>cv2.calibrateCamera()</code> function.</li>
+<li>I applied this distortion correction to the test image using the <code>cv2.undistort()</code> function and obtained this result:</li>
+</ul>
+<p><img src="./output_images/undistort_image_before_to_after.jpg" alt="alt text" title="Undistorted"></p>
+<h3 class="mume-header" id="pipeline-single-images">Pipeline (single images)</h3>
+
+<h4 class="mume-header" id="1-provide-an-example-of-a-distortion-corrected-image">1. Provide an example of a distortion-corrected image.</h4>
+
+<p>To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like the following image, and the origin image in the path of &quot;./test_images/*.jpg&quot;, you will see the difference.</p>
+<table style="width:100%">
+  <tbody><tr>
+    <th>
+      <p align="center">
+           <img src="./test_images/test3.jpg" alt="calibration_before" width="100%" height="100%">
+           <br>test3_raw
+      </p>
+    </th>
+    <th>
+      <p align="center">
+           <img src="./output_images/calibrated_images/test3_calibration_after.jpg" alt="calibration_after" width="100%" height="100%">
+           <br>test3_undistort
+      </p>
+    </th>
+  </tr>
+</tbody></table>
+<h4 class="mume-header" id="2-describe-how-and-identify-where-in-your-code-you-used-color-transforms-gradients-or-other-methods-to-create-a-thresholded-binary-image-provide-an-example-of-a-binary-image-result">2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.</h4>
+
+<p>I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines 67 through 94 in <code>./Image_Binarization/image_binarization.py</code>).  Here&apos;s an example of my output for this step.</p>
+<ul>
+<li>In order to detect the yellow lines, I defined the function of <code>thresh_frame_hsv()</code>, which used <code>cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)</code>. also I set the threshold of V to highlight yellow lines.</li>
+<li>For the white lines, i employed <code>get_binary_from_equalized_grayscale()</code>, which used <code>cv2.equalizeHist(gray_image)</code>. It can clearly understand the overall gray distribution of the image, which is helpful for the extraction of lane lines behind.</li>
+<li>Furthermore, i also used Sobel Algorithm, <code>cv2.Sobel()</code>, to estimating the lines gradients.</li>
+<li>At the end of the algorithmic function of morphologyEx was used, and it can filled the black areas in binary image well.</li>
+</ul>
+<p>Here are the raw [left] and output[right] images:</p>
+<p><img src="./output_images/binrized_images/test3_binarization_after.jpg" alt="alt text" title="Binary Example"></p>
+<h4 class="mume-header" id="3-describe-how-and-identify-where-in-your-code-you-performed-a-perspective-transform-and-provide-an-example-of-a-transformed-image">3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.</h4>
+
+<p>The code for my perspective transform includes a function called <code>transforming_image()</code>, which appears in lines 13 through 52 in the file <code>perspective_transform.py</code> (Perspective_Transform/perspective_transform.py).</p>
+<ul>
+<li>I used the function of cv2.warpPerspective(), which takes as inputs an image (<code>img</code>), as well as source (<code>src</code>) and destination (<code>dst</code>) points. I save the results image in the path of <code>./output_images/transformed_images</code>.</li>
+<li>In order to perform the perspective warping, i set 4 points in the original space and 4 points in the warped space. For this purpose, i used software with mtpaint(<code>sudo apt-get install mtpaint</code>) to get point as follows:</li>
+</ul>
+<p><strong>First Params</strong></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">    h<span class="token punctuation">,</span> w <span class="token operator">=</span> img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+
+    src <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>w<span class="token punctuation">,</span> h<span class="token operator">-</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span>    <span class="token comment"># br</span>
+                      <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> h<span class="token operator">-</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span>    <span class="token comment"># bl</span>
+                      <span class="token punctuation">[</span><span class="token number">540</span><span class="token punctuation">,</span> <span class="token number">460</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment"># tl</span>
+                      <span class="token punctuation">[</span><span class="token number">735</span><span class="token punctuation">,</span> <span class="token number">460</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># tr</span>
+    dst <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>w<span class="token punctuation">,</span> h<span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment"># br</span>
+                      <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> h<span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment"># bl</span>
+                      <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment"># tl</span>
+                      <span class="token punctuation">[</span>w<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>      <span class="token comment"># tr</span>
+
+</pre><p>This resulted in the following source and destination points:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Source</th>
+<th style="text-align:center">Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1280, 705</td>
+<td style="text-align:center">1280, 720</td>
+</tr>
+<tr>
+<td style="text-align:center">0, 705</td>
+<td style="text-align:center">0, 720</td>
+</tr>
+<tr>
+<td style="text-align:center">540, 460</td>
+<td style="text-align:center">0,   0</td>
+</tr>
+<tr>
+<td style="text-align:center">735, 460</td>
+<td style="text-align:center">1280,   0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>After reviewed</strong> (it is so hard)</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">    src <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1080</span><span class="token punctuation">,</span><span class="token number">710</span><span class="token punctuation">]</span><span class="token punctuation">,</span>     <span class="token comment"># br</span>
+                      <span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">710</span><span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token comment"># bl</span>
+                      <span class="token punctuation">[</span><span class="token number">590</span><span class="token punctuation">,</span><span class="token number">452</span><span class="token punctuation">]</span><span class="token punctuation">,</span>      <span class="token comment"># tl</span>
+                      <span class="token punctuation">[</span><span class="token number">729</span><span class="token punctuation">,</span><span class="token number">452</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>     <span class="token comment"># tr</span>
+    dst <span class="token operator">=</span> np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">980</span><span class="token punctuation">,</span> <span class="token number">720</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment"># br</span>
+                      <span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">720</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment"># bl</span>
+                      <span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment"># tl</span>
+                      <span class="token punctuation">[</span><span class="token number">980</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>      <span class="token comment"># tr</span>
+</pre><p>I verified that my perspective transform was working as expected by drawing the <code>src</code> and <code>dst</code> points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.</p>
+<p><img src="./output_images/transformed_images/test3_transformation_after.jpg" alt="alt text" title="Transformation Example"></p>
+<h4 class="mume-header" id="4-describe-how-and-identify-where-in-your-code-you-identified-lane-line-pixels-and-fit-their-positions-with-a-polynomial">4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?</h4>
+
+<p>The code for my lane fitting includes a function called <code>get_fits_by_sliding_windows()</code>, which appears in lines 113 in the file <code>lane_fit.py</code> (Lane_Fit/lane_fit.py).</p>
+<ul>
+<li>In order to fitting the lane lines, i build two functions of <code>get_fits_by_sliding_windows()</code> and <code>get_fits_by_previous_fits()</code>, the former is for single picture, and the latter is for video stream processing.</li>
+<li>For a single image, If we get new image, and we never know where the lane-lines are, we must treat the lane pixel form bottom to top on the frame. so we take a histogram, <code>histogram = np.sum(binary_img[height//2:-30, :], axis=0)</code>, of the bottom half of the image, after i make two windows for sliding towards the top side of image, the we can precisely the location of lane line.</li>
+<li>For video streams, the image frame is continuous, and lane line will not have a big edge jump, so it is very important to know the lane line position of the previous frame. this method is implemented in <code>get_fits_by_previous_fits()</code>. This function has further application the latter video stream.</li>
+<li>In order to make the code modular, I put the extraction and drawing of lane lines on the class of <code>class Line</code>, includes <code>update_line()</code> and <code>draw()</code>, you can see it on line 17 through 102.<br>
+<img src="./output_images/lane_fitting/test3_lane_fitting_after.jpg" alt="alt text" title="Fit Visual"></li>
+</ul>
+<h4 class="mume-header" id="5-describe-how-and-identify-where-in-your-code-you-calculated-the-radius-of-curvature-of-the-lane-and-the-position-of-the-vehicle-with-respect-to-center">5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.</h4>
+
+<p>I did this in lines 85 through 102 in my code in <code>Lane_Fit/lane_fit.py</code></p>
+<ul>
+<li>Firstly, for offset the center of lane, i employed the function of <code>compute_offset_from_center()</code> which locate in <code>main_process.py</code>. In this way, we can estimate the approximate position of the bottom of the lane line. The function code is list in here.</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python">    line_lt_bottom <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>line_lt<span class="token punctuation">.</span>all_x<span class="token punctuation">[</span>line_lt<span class="token punctuation">.</span>all_y <span class="token operator">&gt;</span> <span class="token number">0.95</span> <span class="token operator">*</span> line_lt<span class="token punctuation">.</span>all_y<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    line_rt_bottom <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>line_rt<span class="token punctuation">.</span>all_x<span class="token punctuation">[</span>line_rt<span class="token punctuation">.</span>all_y <span class="token operator">&gt;</span> <span class="token number">0.95</span> <span class="token operator">*</span> line_rt<span class="token punctuation">.</span>all_y<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    lane_width <span class="token operator">=</span> line_rt_bottom <span class="token operator">-</span> line_lt_bottom
+    midpoint <span class="token operator">=</span> frame_width <span class="token operator">/</span> <span class="token number">2</span>
+    offset_pix <span class="token operator">=</span> <span class="token builtin">abs</span><span class="token punctuation">(</span><span class="token punctuation">(</span>line_lt_bottom <span class="token operator">+</span> lane_width <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">-</span> midpoint<span class="token punctuation">)</span>
+    offset_meter <span class="token operator">=</span> xm_per_pix <span class="token operator">*</span> offset_pix
+</pre><ul>
+<li>For the previous lane-line detection, i use <code>np.polyfit()</code> to fitting left and right lane and and returns line_lt, line_rt, and img_fit, we can calculate the radius of curvature by the returned parameters.</li>
+<li>Then we call the <code>Line.curvature()</code> and <code>Line.curvature_meter()</code> to get radius.</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python">    <span class="token decorator annotation punctuation">@property</span>
+    <span class="token comment"># average of polynomial coefficients of the last N iterations</span>
+    <span class="token keyword">def</span> <span class="token function">average_fit</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>self<span class="token punctuation">.</span>recent_fits_pixel<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+    @<span class="token builtin">property</span>
+    <span class="token comment"># radius of curvature of the line (averaged)</span>
+    <span class="token keyword">def</span> <span class="token function">curvature</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        y_eval <span class="token operator">=</span> <span class="token number">0</span>
+        coeffs <span class="token operator">=</span> self<span class="token punctuation">.</span>average_fit
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> coeffs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> y_eval <span class="token operator">+</span> coeffs<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">1.5</span><span class="token punctuation">)</span> <span class="token operator">/</span> np<span class="token punctuation">.</span>absolute<span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> coeffs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    @<span class="token builtin">property</span>
+    <span class="token comment"># radius of curvature of the line (averaged)</span>
+    <span class="token keyword">def</span> <span class="token function">curvature_meter</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        y_eval <span class="token operator">=</span> <span class="token number">0</span>
+        coeffs <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>self<span class="token punctuation">.</span>recent_fits_meter<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> coeffs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> y_eval <span class="token operator">+</span> coeffs<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">1.5</span><span class="token punctuation">)</span> <span class="token operator">/</span> np<span class="token punctuation">.</span>absolute<span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> coeffs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="6-provide-an-example-image-of-your-result-plotted-back-down-onto-the-road-such-that-the-lane-area-is-identified-clearly">6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.</h4>
+
+<p>I implemented this step in lines 99 through 135 in my code in <code>main_process.py</code> in the function <code>main_process()</code>. The whole code includes camera calirabtion, image undistorted, image binarization, image transformation, image lane fitting and blend the results into final image. Here is an example of my result on a test image:</p>
+<p><img src="./output_images/final_image/test3_blend_image.jpg" alt="alt text" title="Output"></p>
+<hr>
+<h3 class="mume-header" id="pipeline-video">Pipeline (video)</h3>
+
+<h4 class="mume-header" id="1-provide-a-link-to-your-final-video-output-your-pipeline-should-perform-reasonably-well-on-the-entire-project-video-wobbly-lines-are-ok-but-no-catastrophic-failures-that-would-cause-the-car-to-drive-off-the-road">1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).</h4>
+
+<p>Here&apos;s a <a href="./project_10_output.mp4">project_10_output.mp4</a><br>
+Here&apos;s a <a href="./project_10_output_after_reviewed.mp4">project_10_output_after_reviewed.mp4</a><br>
+If you can not open the linkage, you can find it in current path and with its name of project_10_output_after_reviewed.mp4.</p>
+<hr>
+<h3 class="mume-header" id="discussion">Discussion</h3>
+
+<h4 class="mume-header" id="1-briefly-discuss-any-problems-issues-you-faced-in-your-implementation-of-this-project-where-will-your-pipeline-likely-fail-what-could-you-do-to-make-it-more-robust">1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?</h4>
+
+<p>In the process of two-sided lane line fitting, there are often errors in the process of fitting lanes, then i reviewed the video courses and refered relavent data, the final display results were completion; After testing challenge video, the lane line fitting function is very poor, even lost. For the improved method, we can use the method of deep learning to improve the effect.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
