@@ -18,13 +18,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./run.png "simulator pic"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -35,95 +29,115 @@ The goals / steps of this project are the following:
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
-* model.py containing the script to create and train the model
-* drive.py for driving the car in autonomous mode
-* model.h5 containing a trained convolution neural network 
-* writeup_report.md or writeup_report.pdf summarizing the results
+* **behavioral_cloning.ipynb** containing the whole procedure training and playback video
+* **drive.py** for driving the car in autonomous mode
+* **Nvidia_model-0.008571.h5** containing a trained convolution neural network
+* **run_result.mp4** front camera view for auto pilot
+* **behavioral_cloning.pdf** it is a readable copy file relative to behavioral_cloning.ipynb
+* **writeup_report.md** or writeup_report.pdf summarizing the results
 
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
-python drive.py model.h5
+CUDA_VISIBLE_DEVICES=1 python3 drive.py Nvidia_model-0.008571.h5 run_result
 ```
 
 #### 3. Submission code is usable and readable
 
-The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
+The behavioral_cloning.ipynb file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-### Model Architecture and Training Strategy
+#### Main Procedure
 
-#### 1. An appropriate model architecture has been employed
+- In this project, I used a deep neural network (built with [Keras](https://keras.io/)) to clone car driving behavior.
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+- The dataset used to sample data, which nums are 8036*3.
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+- Sample data consists of images taken from three different camera angles (Center - Left - Right), in addition to the steering angle, throttle, brake, and speed during each frame.
 
-#### 2. Attempts to reduce overfitting in the model
+- The network is based on NVIDIA's paper [End to End Learning for Self-Driving Cars](https://arxiv.org/pdf/1604.07316v1.pdf), which has been proven to work in this problem domain.
+---
+**There are several steps, more details are shown in behavioral_cloning.pdf**
+- **Data Loading.**
+- **Data Augmentation.**
+- **Data Preprocessing.**
+- **Model Architecture.**
+- **Model Training and Evaluation.**
+- **Model Testing on the simulator.**
+---
+#### About ENV setting
+- Ubuntu 16.04
+- CUDA 9.0
+- CuDNN 7.0.5
+- Python 3.5
+- Keras 1.2.1
+- TensorFlow 1.10
+---
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+**For data loading**, i use dataset from [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip).
+This dataset contains more than 8,000 frame images taken from the 3 cameras (3 images for each frame), in addition to a `csv` file with the steering angle, throttle, brake, and speed during each frame. 
+For data set, i use function of `train_test_split` and test_size is 0.2 to spliting train set and valid set. 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+---
 
-#### 3. Model parameter tuning
+**For data preprocessing**
+- Cropping the image to cut off the sky scene and the car front.
+- Resizing the image to (66 * 200), the image size that the selected model expects.
+- Converting the image to the YUV color space that paper required.
+--- 
+**For data augmentation**
+- Adjusting the steering angle of random images.
+- Flipping random images horizontaly, with steering angle adjustment.
+- Shifting (Translating) random images, with steering angle adjustment.
+- Adding shadows to random images.
+- Altering the brightness of random images.
+---
+**For model architecture**
+In this step, we will design and implement a deep learning model that can clone the vehicle's behavior. We'll use a convolutional neural network (CNN) to map raw pixels from a single front-facing camera directly to steering commands. We'll use the ConvNet from NVIDIA's paper End to End Learning for Self-Driving Cars, which has been proven to work in this problem domain. According to the paper: "Network Architecture We train the weights of our network to minimize the mean squared error between the steering command output by the network and the command of either the human driver, or the adjusted steering command for off-center and rotated images. Our network architecture is shown in Figure 4. The network consists of 9 layers, including a normalization layer, 5 convolutional layers and 3 fully connected layers. The input image is split into YUV planes and passed to the network. The first layer of the network performs image normalization. The normalizer is hard-coded and is not adjusted in the learning process. Performing normalization in the network allows the normalization scheme to be altered with the network architecture and to be accelerated via GPU processing. The convolutional layers were designed to perform feature extraction and were chosen empirically through a series of experiments that varied layer configurations. We use strided convolutions in the first three convolutional layers with a 2×2 stride and a 5×5 kernel and a non-strided convolution with a 3×3 kernel size in the last two convolutional layers. We follow the five convolutional layers with three fully connected layers leading to an output control value which is the inverse turning radius. The fully connected layers are designed to function as a controller for steering, but we note that by training the system end-to-end, it is not possible to make a clean break between which parts of the network function primarily as feature extractor and which serve as controller."
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+---
+**For model training and evaluation**
+-  I've splitted the data into 80% training set and 20% validation set to measure the performance after each epoch.
+-  I used Mean Squared Error (MSE) as a loss function to measure how close the model predicts to the given steering angle for each input frame.
+-  I used the Adaptive Moment Estimation (Adam) Algorithm minimize to the loss function. Adam is an optimization algorithm introduced by D. Kingma and J. Lei Ba in a 2015 paper named [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980). Adam algorithm computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients like [Adadelta](https://arxiv.org/pdf/1212.5701.pdf) and [RMSprop](https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf) algorithms, Adam also keeps an exponentially decaying average of past gradients mtmt, similar to [momentum algorithm](http://www.sciencedirect.com/science/article/pii/S0893608098001166?via%3Dihub), which in turn produce better results.
+-  I used `ModelCheckpoint` from Keras to check the validation loss after each epoch and save the model only if the validation loss reduced.
 
-#### 4. Appropriate training data
+#### Model Training:
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+| Layer (type)                   |Output Shape      |Params  |Connected to     |
+|--------------------------------|------------------|-------:|-----------------|
+|lambda_1 (Lambda)               |(None, 66, 200, 3)|0       |lambda_input_1   |
+|convolution2d_1 (Convolution2D) |(None, 31, 98, 24)|1824    |lambda_1         |
+|convolution2d_2 (Convolution2D) |(None, 14, 47, 36)|21636   |convolution2d_1  |
+|convolution2d_3 (Convolution2D) |(None, 5, 22, 48) |43248   |convolution2d_2  |
+|convolution2d_4 (Convolution2D) |(None, 3, 20, 64) |27712   |convolution2d_3  |
+|convolution2d_5 (Convolution2D) |(None, 1, 18, 64) |36928   |convolution2d_4  |
+|dropout_1 (Dropout)             |(None, 1, 18, 64) |0       |convolution2d_5  |
+|flatten_1 (Flatten)             |(None, 1152)      |0       |dropout_1        |
+|dense_1 (Dense)                 |(None, 100)       |115300  |flatten_1        |
+|dense_2 (Dense)                 |(None, 50)        |5050    |dense_1          |
+|dense_3 (Dense)                 |(None, 10)        |510     |dense_2          |
+|dense_4 (Dense)                 |(None, 1)         |11      |dense_3          |
+|                                |**Total params**  |252,219 |                 |
 
-For details about how I created the training data, see the next section. 
+#### Model Evaluation:
 
-### Model Architecture and Training Strategy
+| Epoch         |Loss       |Validation Loss  |
+|---------------|-----------|-----------------|
+|1/10           |0.0287     |0.0122           |
+|2/10           |0.0234     |0.0110           |
+|3/10           |0.0210     |0.0115           |
+|4/10           |0.0187     |0.0114           |
+|5/10           |0.0175     |0.0093           |
+|6/10           |0.0167     |0.0093           |
+|7/10           |0.0166     |0.0104           |
+|8/10           |0.0159     |0.0100           |
+|9/10           |0.0160     |0.0086           |
+|10/10          |0.0154     |0.0101           |
 
-#### 1. Solution Design Approach
-
-The overall strategy for deriving a model architecture was to ...
-
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
-
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
-
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
-
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
-
-#### 2. Final Model Architecture
-
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+#### For Model Testing on the simulator
+The model was able to drive the car safely through the track without leaving the drivable portion of the track surface.
+Here is example when i simulating the model with simulator 
 
 ![alt text][image1]
 
-#### 3. Creation of the Training Set & Training Process
-
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+**More details refer to behavioral_cloning.pdf**
