@@ -31,6 +31,7 @@ The goals / steps of this project are the following:
 My project includes the following files:
 * **behavioral_cloning.ipynb** containing the whole procedure training and playback video
 * **drive.py** for driving the car in autonomous mode
+* **model.py** by jupyter notebook created
 * **Nvidia_model-0.008571.h5** containing a trained convolution neural network
 * **run_result.mp4** front camera view for auto pilot
 * **behavioral_cloning.pdf** it is a readable copy file relative to behavioral_cloning.ipynb
